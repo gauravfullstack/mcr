@@ -49,37 +49,11 @@ type Todo = {
 };
 ```
 
-### State Needed
-
-```ts
-todos: Todo[]
-input: string
-editingId: number | null
-```
-
 ---
 
 # Step 3: Component Design
 
 > 💬 *"I'll keep the state inside a custom hook and App will act as the orchestrator."*
-
-## Component Tree
-
-```text
-TodoApp
-│
-├── TodoInput
-│      ├── Input Field
-│      └── Add / Update Button
-│
-└── TodoList
-       │
-       ├── TodoItem
-       ├── TodoItem
-       └── TodoItem
-```
-
----
 
 ## Folder Structure
 
