@@ -13,14 +13,14 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Dummy />} />
-      <Route path="/infinitescrolling" element={<InfinteScrolling />} />
       <Route path="/mytodos" element={<TodoApp />} />
+      <Route path="/buttonshowcase" element={<ButtonShowcase />} />
+      <Route path="/checkoutform" element={<CheckoutForm />} />
+      <Route path="/infinitescrolling" element={<InfinteScrolling />} />
       <Route path="/shoppingcart" element={<ShoppingCart />} />
       <Route path="/debouncing" element={<PostSearch />} />
-      <Route path="/checkoutform" element={<CheckoutForm />} />
       <Route path="/kanban" element={<KanbanBoard />} />
       <Route path="/styling" element={<StylingComponent />} />
-      <Route path="/buttonshowcase" element={<ButtonShowcase />} />
     </Routes>
   );
 }
