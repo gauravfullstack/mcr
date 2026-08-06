@@ -20,6 +20,11 @@ const TodoInput: React.FC<Props> = ({
         onChange={(e) => setInput(e.target.value)}
         placeholder="Enter task..."
         style={{ flex: 1, padding: "8px" }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onSubmit()
+          }
+        }}
       />
       <button onClick={onSubmit}>
         {isEditing ? "Update" : "Add"}

@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Todo } from "../types/todo";
 
 export const useTodos = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
   const [input, setInput] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
+
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addOrUpdateTodo = () => {
     if (!input.trim()) return;
