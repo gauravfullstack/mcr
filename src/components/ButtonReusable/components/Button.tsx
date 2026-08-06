@@ -1,5 +1,5 @@
-import "./Button.css";
-import { ButtonHTMLAttributes } from "react";
+import "../styles/Button.css";
+import type { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "danger";
