@@ -8,6 +8,7 @@ import KanbanBoard from "./components/KanbanBoard/KanbanBoard";
 import Dummy from "./components/Dummy/Dummy";
 import StylingComponent from "./components/Styling/StylingComponent";
 import ButtonShowcase from "./components/ButtonReusable/ButtonShowcase";
+import CompleteForm from "./components/Form/CompleteForm";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <Route path="/buttonshowcase" element={<ButtonShowcase />} />
       <Route path="/checkoutform" element={<CheckoutForm />} />
       <Route path="/infinitescrolling" element={<InfinteScrolling />} />
+      <Route path="/form" element={<CompleteForm />} />
       <Route path="/shoppingcart" element={<ShoppingCart />} />
       <Route path="/debouncing" element={<PostSearch />} />
       <Route path="/kanban" element={<KanbanBoard />} />
