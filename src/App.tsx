@@ -5,10 +5,11 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import PostSearch from "./components/Debouncing/components/PostSearch";
 import CheckoutForm from "./components/CheckoutForm/Checkoutform";
 import KanbanBoard from "./components/KanbanBoard/KanbanBoard";
-import Dummy from "./components/Dummy/Dummy";
 import StylingComponent from "./components/Styling/StylingComponent";
 import ButtonShowcase from "./components/ButtonReusable/ButtonShowcase";
 import CompleteForm from "./components/Form/CompleteForm";
+import DataTable from "./components/UserTable/components/DataTable";
+import Dummy from "./components/Dummy/Dummy";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
       <Route path="/debouncing" element={<PostSearch />} />
       <Route path="/kanban" element={<KanbanBoard />} />
       <Route path="/styling" element={<StylingComponent />} />
+      <Route path="/datatable" element={<DataTable />} />
     </Routes>
   );
 }
