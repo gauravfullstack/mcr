@@ -2,7 +2,6 @@ import { useUsers } from '../hooks/useUsers';
 
 import { UserFilter } from './UserFilter';
 import { UserTable } from './UserTable';
-import { Pagination } from './Pagination';
 
 export default function DataTable() {
   const {
@@ -16,14 +15,9 @@ export default function DataTable() {
     sortKey,
     sortOrder,
 
-    currentPage,
-    totalPages,
-
     handleSort,
     handleFilter,
 
-    handlePrevious,
-    handleNext,
   } = useUsers();
 
   if (loading) {
@@ -47,13 +41,6 @@ export default function DataTable() {
         sortKey={sortKey}
         sortOrder={sortOrder}
         onSort={handleSort}
-      />
-
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPrevious={handlePrevious}
-        onNext={handleNext}
       />
     </div>
   );

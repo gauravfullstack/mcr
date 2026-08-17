@@ -8,8 +8,6 @@ import type {
   User,
 } from '../types/user';
 
-const PAGE_SIZE = 3;
-
 export function useUsers() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +20,6 @@ export function useUsers() {
     useState<SortOrder>('asc');
 
   const [filter, setFilter] = useState('All');
-  const [currentPage, setCurrentPage] = useState(1);
 
   // Fetch users
   useEffect(() => {
@@ -80,21 +77,6 @@ export function useUsers() {
     sortOrder,
   ]);
 
-  // Pagination
-  const totalPages = Math.ceil(
-    sortedUsers.length / PAGE_SIZE
-  );
-
-  const paginatedUsers = useMemo(() => {
-    const startIndex =
-      (currentPage - 1) * PAGE_SIZE;
-
-    return sortedUsers.slice(
-      startIndex,
-      startIndex + PAGE_SIZE
-    );
-  }, [sortedUsers, currentPage]);
-
   // Sort
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
@@ -106,31 +88,16 @@ export function useUsers() {
       setSortOrder('asc');
     }
 
-    setCurrentPage(1);
   };
 
   // Filter
   const handleFilter = (role: string) => {
     setFilter(role);
-    setCurrentPage(1);
   };
 
-  // Previous page
-  const handlePrevious = () => {
-    setCurrentPage(prev =>
-      Math.max(prev - 1, 1)
-    );
-  };
-
-  // Next page
-  const handleNext = () => {
-    setCurrentPage(prev =>
-      Math.min(prev + 1, totalPages)
-    );
-  };
 
   return {
-    users: paginatedUsers,
+    users: sortedUsers,
 
     loading,
     error,
@@ -141,13 +108,8 @@ export function useUsers() {
     sortKey,
     sortOrder,
 
-    currentPage,
-    totalPages,
-
     handleSort,
     handleFilter,
 
-    handlePrevious,
-    handleNext,
   };
 }
