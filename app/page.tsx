@@ -104,6 +104,12 @@ const features = [
       "Create an accessible file explorer component.",
     href: "/fileexplorer",
   },
+   {
+    name: "Nested Comments",
+    description:
+      "Create an accessible nested comments component.",
+    href: "/nestedcomments",
+  },
 ];
 
 export default function Home() {
