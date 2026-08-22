@@ -1,0 +1,35 @@
+.btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+}
+
+.btn-md {
+  padding: 10px 16px;
+}
+
+.btn-lg {
+  padding: 14px 20px;
+}
+
+.btn-primary {
+  background: #2563eb;
+}
+
+.btn-secondary {
+  background: gray;
+}
+
+.btn-danger {
+  background: crimson;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
