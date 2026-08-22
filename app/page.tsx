@@ -98,6 +98,12 @@ const features = [
       "Create an accessible toast notification component.",
     href: "/notification",
   },
+  {
+    name: "File Explorer",
+    description:
+      "Create an accessible file explorer component.",
+    href: "/fileexplorer",
+  },
 ];
 
 export default function Home() {
