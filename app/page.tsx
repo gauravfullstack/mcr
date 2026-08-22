@@ -68,6 +68,18 @@ const features = [
       "Create an accessible accordion with expandable sections.",
     href: "/accordion",
   },
+  {
+    name: "Tabs",
+    description:
+      "Build a reusable tabs component with different configurations.",
+    href: "/tabs",
+  },
+  {
+    name: "Dropdown",
+    description:
+      "Create an accessible dropdown component with different configurations.",
+    href: "/dropdown",
+  },
 ];
 
 export default function Home() {

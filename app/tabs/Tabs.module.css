@@ -1,0 +1,33 @@
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: sans-serif;
+}
+
+.tabList {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab {
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: #666;
+}
+
+.active {
+  color: #1976d2;
+  border-bottom: 2px solid #1976d2;
+  font-weight: 600;
+  margin-bottom: -2px;
+}
+
+.panel {
+  padding: 16px 0;
+  font-size: 14px;
+  color: #333;
+}
