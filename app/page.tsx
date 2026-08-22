@@ -110,6 +110,12 @@ const features = [
       "Create an accessible nested comments component.",
     href: "/nestedcomments",
   },
+  {
+    name: "Carousel Component",
+    description:
+      "Create an accessible carousel component.",
+    href: "/carousel",
+  },
 ];
 
 export default function Home() {
