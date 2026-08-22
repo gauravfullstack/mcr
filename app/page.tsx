@@ -86,6 +86,12 @@ const features = [
       "Create an accessible autocomplete component with different configurations.",
     href: "/autocomplete",
   },
+   {
+    name: "File Upload",
+    description:
+      "Create an accessible file upload component with preview and validation.",
+    href: "/fileupload",
+  },
 ];
 
 export default function Home() {

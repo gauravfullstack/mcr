@@ -1,0 +1,50 @@
+.container {
+  width: 400px;
+  font-family: sans-serif;
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  display: block;
+  padding: 12px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+.label:hover {
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.preview {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.preview img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.fileName {
+  font-size: 13px;
+  color: #333;
+}
