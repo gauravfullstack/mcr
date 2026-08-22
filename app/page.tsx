@@ -3,10 +3,10 @@ import styles from "./page.module.css";
 
 const features = [
   {
-    name: "Todo App",
+    name: "Styling with basic CSS",
     description:
-      "Build a todo application with add, edit, delete and filter functionality.",
-    href: "/todos",
+      "Learn to style components using basic CSS techniques.",
+    href: "/styling",
   },
   {
     name: "Reusable Button",
@@ -15,64 +15,22 @@ const features = [
     href: "/button",
   },
   {
-    name: "Checkout Form",
+    name: "Todo App",
     description:
-      "Create a responsive checkout form with validation.",
-    href: "/checkoutform",
-  },
-  {
-    name: "Debounce Input",
-    description:
-      "Create a debounced input component for improved performance.",
-    href: "/debounce",
-  },
-  {
-    name: "Kanban Board",
-    description:
-      "Create a draggable and sortable kanban board with columns and cards.",
-    href: "/kanban",
-  },
-  {
-    name: "Shopping Cart",
-    description:
-      "Create a responsive shopping cart with add, edit, and remove functionality.",
-    href: "/shoppingcart",
-  },
-  {
-    name: "Styling with basic CSS",
-    description:
-      "Learn to style components using basic CSS techniques.",
-    href: "/styling",
-  },
-  {
-    name: "User Table",
-    description:
-      "Create a searchable user table with API integration.",
-    href: "/usertable",
-  },
-  {
-    name: "Infinite Scroll",
-    description:
-      "Load more content automatically as the user scrolls.",
-    href: "/infinitescrolling",
-  },
-  {
-    name: "Modal",
-    description:
-      "Build a reusable modal component with different configurations.",
-    href: "/modal",
-  },
-  {
-    name: "Accordion",
-    description:
-      "Create an accessible accordion with expandable sections.",
-    href: "/accordion",
+      "Build a todo application with add, edit, delete and filter functionality.",
+    href: "/todos",
   },
   {
     name: "Tabs",
     description:
       "Build a reusable tabs component with different configurations.",
     href: "/tabs",
+  },
+  {
+    name: "Modal",
+    description:
+      "Build a reusable modal component with different configurations.",
+    href: "/modal",
   },
   {
     name: "Dropdown",
@@ -87,6 +45,18 @@ const features = [
     href: "/autocomplete",
   },
   {
+    name: "User Table",
+    description:
+      "Create a searchable user table with API integration.",
+    href: "/usertable",
+  },
+  {
+    name: "Multi-step Form",
+    description:
+      "Create a multi-step form with next/back navigation, validation, conditional fields and submission.",
+    href: "/multistepform",
+  },
+  {
     name: "File Upload",
     description:
       "Create an accessible file upload component with preview and validation.",
@@ -99,12 +69,24 @@ const features = [
     href: "/notification",
   },
   {
+    name: "Infinite Scroll",
+    description:
+      "Load more content automatically as the user scrolls.",
+    href: "/infinitescrolling",
+  },
+  {
+    name: "Shopping Cart",
+    description:
+      "Create a responsive shopping cart with add, edit, and remove functionality.",
+    href: "/shoppingcart",
+  },
+  {
     name: "File Explorer",
     description:
       "Create an accessible file explorer component.",
     href: "/fileexplorer",
   },
-   {
+  {
     name: "Nested Comments",
     description:
       "Create an accessible nested comments component.",
@@ -116,6 +98,26 @@ const features = [
       "Create an accessible carousel component.",
     href: "/carousel",
   },
+  {
+    name: "Kanban Board",
+    description:
+      "Create a draggable and sortable kanban board with columns and cards.",
+    href: "/kanban",
+  },
+  {
+    name: "Checkout Form",
+    description:
+      "Create a responsive checkout form with validation.",
+    href: "/checkoutform",
+  },
+  {
+    name: "Debounce Input",
+    description:
+      "Create a debounced input component for improved performance.",
+    href: "/debounce",
+  },
+
+
 ];
 
 export default function Home() {
