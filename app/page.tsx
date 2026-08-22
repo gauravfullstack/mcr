@@ -6,25 +6,55 @@ const features = [
     name: "Todo App",
     description:
       "Build a todo application with add, edit, delete and filter functionality.",
-    href: "/todo",
+    href: "/todos",
   },
   {
-    name: "Autocomplete",
+    name: "Reusable Button",
     description:
-      "Create a searchable autocomplete input with API integration.",
-    href: "/autocomplete",
+      "Create a reusable button component with different variants and states.",
+    href: "/button",
   },
   {
-    name: "Pagination",
+    name: "Checkout Form",
     description:
-      "Implement client-side and server-side pagination patterns.",
-    href: "/pagination",
+      "Create a responsive checkout form with validation.",
+    href: "/checkoutform",
+  },
+  {
+    name: "Debounce Input",
+    description:
+      "Create a debounced input component for improved performance.",
+    href: "/debounce",
+  },
+  {
+    name: "Kanban Board",
+    description:
+      "Create a draggable and sortable kanban board with columns and cards.",
+    href: "/kanban",
+  },
+  {
+    name: "Shopping Cart",
+    description:
+      "Create a responsive shopping cart with add, edit, and remove functionality.",
+    href: "/shoppingcart",
+  },
+  {
+    name: "Styling with basic CSS",
+    description:
+      "Learn to style components using basic CSS techniques.",
+    href: "/styling",
+  },
+  {
+    name: "User Table",
+    description:
+      "Create a searchable user table with API integration.",
+    href: "/usertable",
   },
   {
     name: "Infinite Scroll",
     description:
       "Load more content automatically as the user scrolls.",
-    href: "/infinite-scroll",
+    href: "/infinitescrolling",
   },
   {
     name: "Modal",
