@@ -80,6 +80,12 @@ const features = [
       "Create an accessible dropdown component with different configurations.",
     href: "/dropdown",
   },
+  {
+    name: "Autocomplete",
+    description:
+      "Create an accessible autocomplete component with different configurations.",
+    href: "/autocomplete",
+  },
 ];
 
 export default function Home() {
