@@ -86,11 +86,17 @@ const features = [
       "Create an accessible autocomplete component with different configurations.",
     href: "/autocomplete",
   },
-   {
+  {
     name: "File Upload",
     description:
       "Create an accessible file upload component with preview and validation.",
     href: "/fileupload",
+  },
+  {
+    name: "Toast Notifications",
+    description:
+      "Create an accessible toast notification component.",
+    href: "/notification",
   },
 ];
 
