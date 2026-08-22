@@ -54,7 +54,7 @@ const features = [
     name: "Multi-step Form",
     description:
       "Create a multi-step form with next/back navigation, validation, conditional fields and submission.",
-    href: "/multistepform",
+    href: "/checkoutform",
   },
   {
     name: "File Upload",
@@ -108,7 +108,7 @@ const features = [
     name: "Checkout Form",
     description:
       "Create a responsive checkout form with validation.",
-    href: "/checkoutform",
+    href: "/form",
   },
   {
     name: "Debounce Input",
