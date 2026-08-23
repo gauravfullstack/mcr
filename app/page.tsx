@@ -116,6 +116,12 @@ const features = [
       "Create a debounced input component for improved performance.",
     href: "/debounce",
   },
+   {
+    name: "WorkSpace",
+    description:
+      "Create a workspace component for managing multiple panels.",
+    href: "/workspace",
+  },
 
 
 ];
