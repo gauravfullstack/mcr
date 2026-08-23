@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import { useState } from "react";
 
 export const useMultiStepForm = (maxStep: number) => {
@@ -16,5 +17,10 @@ export const useMultiStepForm = (maxStep: number) => {
     setStep(stepNumber);
   };
 
-  return { step, next, back, goTo };
+  return {
+    step,
+    next,
+    back,
+    goTo,
+  };
 };

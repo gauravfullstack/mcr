@@ -105,12 +105,6 @@ const features = [
     href: "/kanban",
   },
   {
-    name: "Checkout Form",
-    description:
-      "Create a responsive checkout form with validation.",
-    href: "/form",
-  },
-  {
     name: "WorkSpace",
     description:
       "Create a workspace component for managing multiple panels.",

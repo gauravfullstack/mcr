@@ -1,9 +1,11 @@
-'use client';
+"use client";
+
 import { useState } from "react";
 import Step01 from "./components/Step01";
 import Step02 from "./components/Step02";
 import Step03 from "./components/Step03";
 import { useMultiStepForm } from "./hooks/useMultiStepForm";
+import styles from "./Form.module.css";
 
 export type FormData = {
   name: string;
@@ -39,11 +41,15 @@ export default function CheckoutForm() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h3>Checkout Form</h3>
 
       {step === 1 && (
-        <Step01 data={formData} onChange={handleChange} onNext={next} />
+        <Step01
+          data={formData}
+          onChange={handleChange}
+          onNext={next}
+        />
       )}
 
       {step === 2 && (
@@ -56,7 +62,11 @@ export default function CheckoutForm() {
       )}
 
       {step === 3 && (
-        <Step03 data={formData} onBack={back} onSubmit={handleSubmit} />
+        <Step03
+          data={formData}
+          onBack={back}
+          onSubmit={handleSubmit}
+        />
       )}
     </div>
   );
