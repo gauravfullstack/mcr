@@ -57,6 +57,12 @@ const features = [
     href: "/checkoutform",
   },
   {
+    name: "Infinite Scroll",
+    description:
+      "Load more content automatically as the user scrolls.",
+    href: "/infinitescrolling",
+  },
+  {
     name: "File Upload",
     description:
       "Create an accessible file upload component with preview and validation.",
@@ -67,12 +73,6 @@ const features = [
     description:
       "Create an accessible toast notification component.",
     href: "/notification",
-  },
-  {
-    name: "Infinite Scroll",
-    description:
-      "Load more content automatically as the user scrolls.",
-    href: "/infinitescrolling",
   },
   {
     name: "Shopping Cart",
