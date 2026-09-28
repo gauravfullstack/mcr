@@ -14,7 +14,7 @@ export default function FileUpload() {
     if (!ALLOWED_TYPES.includes(file.type)) {
       return 'Only JPG, PNG, WEBP allowed.';
     }
-    if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+    if (file.size > MAX_SIZE_MB * 1024 * 1024) { 
       return `File size must be under ${MAX_SIZE_MB}MB.`;
     }
     return null;
