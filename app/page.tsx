@@ -3,18 +3,6 @@ import styles from "./page.module.css";
 
 const features = [
   {
-    name: "Styling with basic CSS",
-    description:
-      "Learn to style components using basic CSS techniques.",
-    href: "/styling",
-  },
-  {
-    name: "Reusable Button",
-    description:
-      "Create a reusable button component with different variants and states.",
-    href: "/button",
-  },
-  {
     name: "Todo App",
     description:
       "Build a todo application with add, edit, delete and filter functionality.",
