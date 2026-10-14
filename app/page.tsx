@@ -15,18 +15,6 @@ const features = [
     href: "/tabs",
   },
   {
-    name: "Modal",
-    description:
-      "Build a reusable modal component with different configurations.",
-    href: "/modal",
-  },
-  {
-    name: "Dropdown",
-    description:
-      "Create an accessible dropdown component with different configurations.",
-    href: "/dropdown",
-  },
-  {
     name: "Autocomplete",
     description:
       "Create an accessible autocomplete component with different configurations.",

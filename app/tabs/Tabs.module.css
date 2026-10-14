@@ -1,33 +1,102 @@
 .container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 40px auto;
   font-family: sans-serif;
 }
 
 .tabList {
   display: flex;
-  gap: 4px;
-  border-bottom: 2px solid #e0e0e0;
+  gap: 8px;
+  border-bottom: 1px solid #ddd;
 }
 
 .tab {
-  padding: 8px 16px;
-  cursor: pointer;
+  padding: 10px 16px;
   border: none;
-  background: none;
+  background: transparent;
+  cursor: pointer;
   font-size: 14px;
-  color: #666;
+  color: #555;
+}
+
+.tab:hover {
+  color: #000;
 }
 
 .active {
-  color: #1976d2;
-  border-bottom: 2px solid #1976d2;
+  color: #000;
   font-weight: 600;
-  margin-bottom: -2px;
+  border-bottom: 2px solid #0070f3;
 }
 
 .panel {
-  padding: 16px 0;
+  padding: 20px 0;
+}
+
+.panel button {
+  padding: 8px 14px;
+  border: 1px solid #0070f3;
+  background: #0070f3;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
   font-size: 14px;
-  color: #333;
+}
+
+.panel button:hover {
+  background: #005ad1;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 300px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancelButton {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  padding: 8px 14px;
+  border: none;
+  background: #dc2626;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background: #b91c1c;
 }

@@ -2,7 +2,7 @@
 'use client';
 
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import style from './parent.module.css';
+import style from './Autocomplete.module.css';
 
 type User = {
   id: number;
