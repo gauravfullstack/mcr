@@ -5,7 +5,7 @@ const features = [
   {
     name: "Todo App",
     description:
-      "Build a todo application with add, edit, delete and filter functionality.",
+      "Build a todo application with add, edit, delete, completion, and toast notifications.",
     href: "/todos",
   },
   {
@@ -43,12 +43,6 @@ const features = [
     description:
       "Create an accessible file upload component with preview and validation.",
     href: "/fileupload",
-  },
-  {
-    name: "Toast Notifications",
-    description:
-      "Create an accessible toast notification component.",
-    href: "/notification",
   },
   {
     name: "Shopping Cart",

@@ -9,6 +9,8 @@ Functional Requirements:
 5. Completed todos show strikethrough text.
 6. If no todos present, show "No todos yet" text.
 7. Enter key should also trigger add todo.
+8. Show toast notifications when todos are added, edited, deleted, or completed.
+9. Toasts can be manually dismissed and automatically disappear after 3 seconds.
 
 
 
@@ -30,8 +32,11 @@ app
       TodoInput.tsx     → input box + add button
       TodoList.tsx      → list of all todos
       TodoItem.tsx      → single todo row
+      Toast.tsx         → single notification
+      ToastContainer.tsx → renders active notifications
     hooks
       useTodos.ts       → all logic here
+      useToast.ts       → notification state and timeout logic
     types
       index.ts
     page.tsx
@@ -69,6 +74,12 @@ Business Logic:
 
 8. Input state lives locally in TodoInput.tsx
    — not in the hook
+
+9. Toast notifications
+   - Show success notifications for add and update
+   - Show info notifications for delete and completion changes
+   - Show an error notification when submitting an empty task
+   - Allow manual dismissal and auto-dismiss after 3 seconds
 ```
 
 ---

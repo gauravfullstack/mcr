@@ -4,6 +4,7 @@ import React from "react";
 import { useTodos } from "./hooks/useTodos";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import ToastContainer from "./components/ToastContainer";
 import styles from "./parent.module.css";
 
 const TodoApp: React.FC = () => {
@@ -16,6 +17,8 @@ const TodoApp: React.FC = () => {
     deleteTodo,
     toggleTodo,
     editTodo,
+    toasts,
+    removeToast,
   } = useTodos();
 
   return (
@@ -35,6 +38,8 @@ const TodoApp: React.FC = () => {
         onToggle={toggleTodo}
         onEdit={editTodo}
       />
+
+      <ToastContainer toasts={toasts} onRemove={removeToast} />
     </div>
   );
 };
