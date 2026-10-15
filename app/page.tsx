@@ -39,12 +39,6 @@ const features = [
     href: "/infinitescrolling",
   },
   {
-    name: "File Upload",
-    description:
-      "Create an accessible file upload component with preview and validation.",
-    href: "/fileupload",
-  },
-  {
     name: "Shopping Cart",
     description:
       "Create a responsive shopping cart with add, edit, and remove functionality.",
