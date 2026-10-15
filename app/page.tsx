@@ -33,12 +33,6 @@ const features = [
     href: "/checkoutform",
   },
   {
-    name: "Infinite Scroll",
-    description:
-      "Load more content automatically as the user scrolls.",
-    href: "/infinitescrolling",
-  },
-  {
     name: "Shopping Cart",
     description:
       "Create a responsive shopping cart with add, edit, and remove functionality.",
