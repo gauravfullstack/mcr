@@ -1,0 +1,28 @@
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.form,
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form {
+  gap: 16px;
+}
+
+.field input {
+  padding: 8px;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 14px;
+}
+
+.form button {
+  padding: 8px 14px;
+}

@@ -21,10 +21,52 @@ const features = [
     href: "/usertable",
   },
   {
+    name: "User List",
+    description:
+      "Fetch users and display loading, error, empty, and success states.",
+    href: "/user-list",
+  },
+  {
+    name: "Product Listing",
+    description:
+      "Search products, filter by category, and sort by price.",
+    href: "/product-listing",
+  },
+  {
+    name: "Infinite Scroll",
+    description:
+      "Load the next batch of users as you scroll to the bottom.",
+    href: "/infinite-scroll",
+  },
+  {
+    name: "Paginated Table",
+    description:
+      "Browse users with page size selection and previous/next controls.",
+    href: "/paginated-table",
+  },
+  {
     name: "Multi-step Form",
     description:
       "Create a multi-step form with next/back navigation, validation, conditional fields and submission.",
     href: "/checkoutform",
+  },
+  {
+    name: "Dynamic Phone Fields",
+    description:
+      "Add and remove phone number fields in a form.",
+    href: "/dynamic-phone-fields",
+  },
+  {
+    name: "Login Form",
+    description:
+      "Validate login fields and disable submit while the request is in progress.",
+    href: "/login",
+  },
+  {
+    name: "File Upload",
+    description:
+      "Preview an image and display upload progress.",
+    href: "/file-upload",
   },
   {
     name: "Shopping Cart",

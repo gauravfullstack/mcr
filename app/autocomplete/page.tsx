@@ -1,7 +1,6 @@
-
 'use client';
 
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useState, type ChangeEvent, type KeyboardEvent } from 'react';
 import style from './Autocomplete.module.css';
 
 type User = {
@@ -12,155 +11,135 @@ type User = {
 
 export default function Autocomplete() {
   const [query, setQuery] = useState('');
-  const [userData, setUserData] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [error, setError] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Debounce search by 300ms
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedQuery(query);
-    }, 300);
+    const search = query.trim().toLowerCase();
+    if (!search) {
+      setUsers([]);
+      setLoading(false);
+      setError('');
+      return;
+    }
 
-    return () => clearTimeout(timer);
-  }, [query]);
+    const controller = new AbortController();
+    const timer = setTimeout(async () => {
+      setLoading(true);
+      setError('');
 
-  // Fetch users
-  useEffect(() => {
-    const fetchUsers = async () => {
       try {
-        setLoading(true);
-        setError(null);
+        const response = await fetch('/users.json', {
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error('Failed to fetch suggestions.');
 
-        const res = await fetch('/users.json');
-
-        if (!res.ok) {
-          throw new Error('Failed to fetch users');
+        const allUsers: User[] = await response.json();
+        setUsers(
+          allUsers.filter(
+            (user) =>
+              user.name.toLowerCase().includes(search) ||
+              user.role.toLowerCase().includes(search),
+          ),
+        );
+        setActiveIndex(-1);
+      } catch (requestError) {
+        if (requestError instanceof Error && requestError.name === 'AbortError') {
+          return;
         }
-
-        const users: User[] = await res.json();
-        setUserData(users);
-      } catch (error) {
         setError(
-          error instanceof Error
-            ? error.message
-            : 'Something went wrong'
+          requestError instanceof Error
+            ? requestError.message
+            : 'Failed to fetch suggestions.',
         );
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       }
-    };
-
-    fetchUsers();
-  }, []);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
+    }, 300);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      clearTimeout(timer);
+      controller.abort();
     };
-  }, []);
+  }, [query]);
 
-  // Filter users using the debounced query
-  const search = debouncedQuery.trim().toLowerCase();
-
-  const filteredUsers = userData.filter(
-    (user) =>
-      user.name.toLowerCase().includes(search) ||
-      user.role.toLowerCase().includes(search)
-  );
-
-  const isDebouncing =
-    query.trim().toLowerCase() !==
-    debouncedQuery.trim().toLowerCase();
-
-  const showDropdown =
-    isOpen && query.trim().length > 0 && !isDebouncing;
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-    setIsOpen(true);
-  };
-
-  const handleClear = () => {
-    setQuery('');
-    setDebouncedQuery('');
-    setIsOpen(false);
-  };
-
-  const handleSelect = (user: User) => {
+  const selectUser = (user: User) => {
     setQuery(user.name);
-    setDebouncedQuery(user.name);
     setIsOpen(false);
+    setActiveIndex(-1);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'ArrowDown' && users.length > 0) {
+      event.preventDefault();
+      setIsOpen(true);
+      setActiveIndex((index) => (index + 1) % users.length);
+    } else if (event.key === 'ArrowUp' && users.length > 0) {
+      event.preventDefault();
+      setIsOpen(true);
+      setActiveIndex((index) => (index <= 0 ? users.length - 1 : index - 1));
+    } else if (event.key === 'Enter' && isOpen && activeIndex >= 0) {
+      event.preventDefault();
+      selectUser(users[activeIndex]);
+    } else if (event.key === 'Escape') {
+      setIsOpen(false);
+    }
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+    setIsOpen(true);
+    setActiveIndex(-1);
   };
 
   return (
-    <div className={style.container}>
-      <h1 className={style.title}>Autocomplete Feature</h1>
+    <main className={style.container}>
+      <h1>Autocomplete</h1>
+      <input
+        className={style.input}
+        type="text"
+        role="combobox"
+        aria-label="Search users"
+        aria-autocomplete="list"
+        aria-expanded={isOpen && users.length > 0}
+        aria-controls="user-suggestions"
+        aria-activedescendant={
+          activeIndex >= 0 ? `user-option-${users[activeIndex].id}` : undefined
+        }
+        placeholder="Search by name or role..."
+        value={query}
+        onChange={handleChange}
+        onFocus={() => setIsOpen(true)}
+        onKeyDown={handleKeyDown}
+      />
 
-      <div ref={containerRef}>
-        <div className={style.inputWrapper}>
-          <input
-            type="text"
-            placeholder="Search by name or role..."
-            className={style.input}
-            value={query}
-            onChange={handleChange}
-            onFocus={() => {
-              if (query.trim()) {
-                setIsOpen(true);
-              }
-            }}
-            role="combobox"
-            aria-expanded={showDropdown}
-            aria-autocomplete="list"
-          />
-        </div>
+      {loading && <p className={style.message}>Loading...</p>}
+      {error && <p className={style.error} role="alert">{error}</p>}
 
-        {error && <p role="alert">{error}</p>}
-
-        {loading && <p>Loading users...</p>}
-
-        {showDropdown && !loading && !error && (
-          <div className={style.suggestionContainer}>
-            {filteredUsers.length > 0 ? (
-              <ul role="listbox">
-                {filteredUsers.map((user) => (
-                  <li key={user.id}>
-                    <button
-                      type="button"
-                      role="option"
-                      aria-selected={false}
-                      onClick={() => handleSelect(user)}
-                    >
-                      <span>{user.name}</span>
-                      <small> — {user.role}</small>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No users found</p>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
+      {isOpen && !loading && !error && query.trim() && (
+        <ul className={style.dropdown} id="user-suggestions" role="listbox">
+          {users.length > 0 ? (
+            users.map((user, index) => (
+              <li
+                className={`${style.option} ${activeIndex === index ? style.active : ''}`}
+                id={`user-option-${user.id}`}
+                key={user.id}
+                role="option"
+                aria-selected={activeIndex === index}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => selectUser(user)}
+              >
+                {user.name} — {user.role}
+              </li>
+            ))
+          ) : (
+            <li className={style.message}>No users found.</li>
+          )}
+        </ul>
+      )}
+    </main>
   );
 }

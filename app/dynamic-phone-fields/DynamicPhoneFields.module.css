@@ -1,0 +1,21 @@
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.field input {
+  min-width: 0;
+  flex: 1;
+  padding: 8px;
+}
+
+.addButton {
+  margin-top: 8px;
+}
