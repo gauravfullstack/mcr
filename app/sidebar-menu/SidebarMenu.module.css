@@ -1,0 +1,32 @@
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  padding: 20px;
+  background: #f3f4f6;
+}
+
+.section {
+  margin-bottom: 8px;
+}
+
+.parent {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+  border: 0;
+  background: white;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.children {
+  margin: 0;
+  padding: 8px 8px 8px 28px;
+  list-style: none;
+}
+
+.children li {
+  padding: 6px 0;
+}

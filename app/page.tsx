@@ -45,6 +45,36 @@ const features = [
     href: "/paginated-table",
   },
   {
+    name: "Modal",
+    description:
+      "Open a modal with focus trapping, Escape, and outside-click closing.",
+    href: "/modal",
+  },
+  {
+    name: "Searchable Dropdown",
+    description:
+      "Search and select an option from a dropdown that closes on outside click.",
+    href: "/searchable-dropdown",
+  },
+  {
+    name: "Toast Notifications",
+    description:
+      "Stack notifications that dismiss automatically after a short time.",
+    href: "/toast-notifications",
+  },
+  {
+    name: "Tooltip",
+    description:
+      "Position a tooltip above or below its target based on available space.",
+    href: "/tooltip",
+  },
+  {
+    name: "Sidebar Menu",
+    description:
+      "Expand and collapse nested items in a sidebar menu.",
+    href: "/sidebar-menu",
+  },
+  {
     name: "Multi-step Form",
     description:
       "Create a multi-step form with next/back navigation, validation, conditional fields and submission.",

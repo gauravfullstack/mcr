@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+  width: 280px;
+  margin: 40px auto;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.dropdown input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+}
+
+.dropdown ul {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown li button {
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown li button:hover {
+  background: #f3f4f6;
+}
