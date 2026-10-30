@@ -3,12 +3,6 @@ import styles from "./page.module.css";
 
 const features = [
   {
-    name: "Todo App",
-    description:
-      "Build a todo application with add, edit, delete, completion, and toast notifications.",
-    href: "/todos",
-  },
-  {
     name: "Tabs",
     description:
       "Build a reusable tabs component with different configurations.",
@@ -68,7 +62,24 @@ const features = [
       "Create a workspace component for managing multiple panels.",
     href: "/workspace",
   },
-
+  {
+    name: "Counter",
+    description:
+      "Create a simple counter component with increment, decrement, and reset functionality.",
+    href: "/counter",
+  },
+  {
+    name: "Todo App",
+    description:
+      "Build a todo application with add, edit, delete, completion, and toast notifications.",
+    href: "/todos",
+  },
+  {
+    name: "Star Rating",
+    description:
+      "Create an accessible star rating component.",
+    href: "/starrating",
+  }
 
 ];
 

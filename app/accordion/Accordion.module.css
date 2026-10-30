@@ -1,0 +1,57 @@
+.container {
+  width: min(100% - 32px, 720px);
+  margin: 40px auto;
+}
+
+.container > h1 {
+  margin-bottom: 24px;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section > h2 {
+  margin-bottom: 12px;
+}
+
+.item {
+  border: 1px solid #d1d5db;
+  border-bottom: 0;
+}
+
+.item:last-child {
+  border-bottom: 1px solid #d1d5db;
+}
+
+.itemHeading {
+  margin: 0;
+}
+
+.button {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  background: #f3f4f6;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.button:hover {
+  background: #e5e7eb;
+}
+
+.button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+.panel {
+  padding: 0 16px 12px;
+}
+
+.panel p {
+  margin: 0;
+}

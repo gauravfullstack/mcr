@@ -1,0 +1,42 @@
+
+.star-rating {
+  width: 350px;
+  margin: 40px auto;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.star-rating h2 {
+  margin-bottom: 18px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.star {
+  font-size: 36px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star.active {
+  color: #f5a623;
+}
+
+.star:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.star-rating p {
+  margin-top: 18px;
+  font-size: 15px;
+}
