@@ -63,6 +63,12 @@ const features = [
     href: "/workspace",
   },
   {
+    name: "Accordion",
+    description:
+      "Build single-open and multiple-open accordion panels.",
+    href: "/accordion",
+  },
+  {
     name: "Counter",
     description:
       "Create a simple counter component with increment, decrement, and reset functionality.",
