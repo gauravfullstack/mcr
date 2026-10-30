@@ -129,6 +129,36 @@ const features = [
     href: "/use-interval",
   },
   {
+    name: "OTP Input",
+    description:
+      "Enter a one-time code with automatic focus movement and submission.",
+    href: "/otp-input",
+  },
+  {
+    name: "Tic-Tac-Toe",
+    description:
+      "Play with turn management, winner detection, and reset.",
+    href: "/tic-tac-toe",
+  },
+  {
+    name: "Traffic Light",
+    description:
+      "Automatically cycle through red, yellow, and green lights.",
+    href: "/traffic-light",
+  },
+  {
+    name: "Progress Bar",
+    description:
+      "Adjust progress and see the bar animate to the selected value.",
+    href: "/progress-bar",
+  },
+  {
+    name: "Tag Input",
+    description:
+      "Add and remove tags with Enter, Backspace, or a remove button.",
+    href: "/tag-input",
+  },
+  {
     name: "Multi-step Form",
     description:
       "Create a multi-step form with next/back navigation, validation, conditional fields and submission.",

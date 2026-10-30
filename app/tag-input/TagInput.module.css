@@ -1,0 +1,39 @@
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.tagInput {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #e5e7eb;
+}
+
+.tag button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tagInput input {
+  flex: 1;
+  min-width: 180px;
+  padding: 6px;
+  border: 0;
+  outline: 0;
+}

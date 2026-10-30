@@ -14,11 +14,8 @@ export function useUsers() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [sortKey, setSortKey] =
-    useState<SortKey>('name');
-
-  const [sortOrder, setSortOrder] =
-    useState<SortOrder>('asc');
+  const [sortKey, setSortKey] = useState<SortKey | null>(null);
+  const [sortOrder, setSortOrder] = useState<SortOrder>(null);
 
   const [filter, setFilter] = useState('All');
 
@@ -63,10 +60,13 @@ export function useUsers() {
 
   // Sort
   const sortedUsers = useMemo(() => {
+    if (!sortKey || !sortOrder) return filteredUsers;
+
     return [...filteredUsers].sort((a, b) => {
-      const result = a[sortKey].localeCompare(
-        b[sortKey]
-      );
+      const result =
+        typeof a[sortKey] === 'number' && typeof b[sortKey] === 'number'
+          ? a[sortKey] - b[sortKey]
+          : String(a[sortKey]).localeCompare(String(b[sortKey]));
 
       return sortOrder === 'asc'
         ? result
@@ -81,9 +81,12 @@ export function useUsers() {
   // Sort
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
-      setSortOrder(prev =>
-        prev === 'asc' ? 'desc' : 'asc'
-      );
+      if (sortOrder === 'asc') {
+        setSortOrder('desc');
+      } else {
+        setSortKey(null);
+        setSortOrder(null);
+      }
     } else {
       setSortKey(key);
       setSortOrder('asc');

@@ -4,6 +4,6 @@ export type User = {
   role: string;
 };
 
-export type SortKey = 'name' | 'role';
+export type SortKey = 'id' | 'name' | 'role';
 
-export type SortOrder = 'asc' | 'desc';
+export type SortOrder = 'asc' | 'desc' | null;

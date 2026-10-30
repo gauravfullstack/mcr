@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { fetchUsers } from '../usertable/api/userApi';
-import type { User } from '../usertable/types/user';
+import type { SortKey, SortOrder, User } from '../usertable/types/user';
 
 export default function PaginatedTablePage() {
   const [users, setUsers] = useState<User[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
+  const [sortKey, setSortKey] = useState<SortKey>('id');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -18,8 +20,24 @@ export default function PaginatedTablePage() {
       .finally(() => setLoading(false));
   }, []);
 
-  const pageCount = Math.ceil(users.length / pageSize);
-  const pageUsers = users.slice((page - 1) * pageSize, page * pageSize);
+  const pageCount = Math.max(1, Math.ceil(users.length / pageSize));
+  const sortedUsers = [...users].sort((a, b) => {
+    const result =
+      typeof a[sortKey] === 'number' && typeof b[sortKey] === 'number'
+        ? a[sortKey] - b[sortKey]
+        : String(a[sortKey]).localeCompare(String(b[sortKey]));
+
+    return sortOrder === 'asc' ? result : -result;
+  });
+  const pageUsers = sortedUsers.slice((page - 1) * pageSize, page * pageSize);
+
+  const handleSort = (key: SortKey) => {
+    setSortOrder((order) =>
+      sortKey === key && order === 'asc' ? 'desc' : 'asc',
+    );
+    setSortKey(key);
+    setPage((currentPage) => Math.min(currentPage, pageCount));
+  };
 
   if (loading) return <p>Loading users...</p>;
   if (error) return <p role="alert">{error}</p>;
@@ -32,8 +50,13 @@ export default function PaginatedTablePage() {
         <select
           value={pageSize}
           onChange={(event) => {
-            setPageSize(Number(event.target.value));
-            setPage(1);
+            const nextPageSize = Number(event.target.value);
+            const nextPageCount = Math.max(
+              1,
+              Math.ceil(users.length / nextPageSize),
+            );
+            setPageSize(nextPageSize);
+            setPage((currentPage) => Math.min(currentPage, nextPageCount));
           }}
         >
           <option value={5}>5</option>
@@ -45,9 +68,23 @@ export default function PaginatedTablePage() {
       <table border={1} cellPadding={8}>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Role</th>
+            {(['id', 'name', 'role'] as const).map((key) => (
+              <th
+                key={key}
+                aria-sort={
+                  sortKey !== key
+                    ? 'none'
+                    : sortOrder === 'asc'
+                      ? 'ascending'
+                      : 'descending'
+                }
+              >
+                <button type="button" onClick={() => handleSort(key)}>
+                  {key === 'id' ? 'ID' : key === 'name' ? 'Name' : 'Role'}
+                  {sortKey === key ? (sortOrder === 'asc' ? ' ↑' : ' ↓') : ''}
+                </button>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>

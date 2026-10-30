@@ -6,7 +6,7 @@ import type {
 
 type UserTableProps = {
   users: User[];
-  sortKey: SortKey;
+  sortKey: SortKey | null;
   sortOrder: SortOrder;
   onSort: (key: SortKey) => void;
 };
@@ -25,39 +25,22 @@ export function UserTable({
     >
       <thead>
         <tr>
-          <th>ID</th>
-
-          <th
-            onClick={() => onSort('name')}
-            style={{ cursor: 'pointer' }}
-          >
-            Name
-
-            {sortKey === 'name' && (
-              <span>
-                {' '}
-                {sortOrder === 'asc'
-                  ? '↑'
-                  : '↓'}
-              </span>
-            )}
-          </th>
-
-          <th
-            onClick={() => onSort('role')}
-            style={{ cursor: 'pointer' }}
-          >
-            Role
-
-            {sortKey === 'role' && (
-              <span>
-                {' '}
-                {sortOrder === 'asc'
-                  ? '↑'
-                  : '↓'}
-              </span>
-            )}
-          </th>
+          {(['id', 'name', 'role'] as const).map((key) => (
+            <th key={key} aria-sort={
+              sortKey !== key || !sortOrder
+                ? 'none'
+                : sortOrder === 'asc'
+                  ? 'ascending'
+                  : 'descending'
+            }>
+              <button type="button" onClick={() => onSort(key)}>
+                {key === 'id' ? 'ID' : key === 'name' ? 'Name' : 'Role'}
+                {sortKey === key && sortOrder
+                  ? sortOrder === 'asc' ? ' ↑' : ' ↓'
+                  : ''}
+              </button>
+            </th>
+          ))}
         </tr>
       </thead>
 

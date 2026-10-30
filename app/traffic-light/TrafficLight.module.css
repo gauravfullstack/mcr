@@ -1,0 +1,40 @@
+.container {
+  width: 180px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.signal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 80px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 16px;
+  background: #222;
+}
+
+.light {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  opacity: 0.25;
+}
+
+.red {
+  background: #ef4444;
+}
+
+.yellow {
+  background: #facc15;
+}
+
+.green {
+  background: #22c55e;
+}
+
+.active {
+  opacity: 1;
+}
