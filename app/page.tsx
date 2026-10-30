@@ -75,6 +75,24 @@ const features = [
     href: "/sidebar-menu",
   },
   {
+    name: "Countdown Timer",
+    description:
+      "Start, pause, resume, and reset a countdown.",
+    href: "/countdown-timer",
+  },
+  {
+    name: "Calendar",
+    description:
+      "View a month and select a date.",
+    href: "/calendar",
+  },
+  {
+    name: "Theme Switcher",
+    description:
+      "Toggle light and dark themes and save the choice in localStorage.",
+    href: "/theme-switcher",
+  },
+  {
     name: "Multi-step Form",
     description:
       "Create a multi-step form with next/back navigation, validation, conditional fields and submission.",

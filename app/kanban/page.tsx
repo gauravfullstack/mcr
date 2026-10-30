@@ -3,7 +3,7 @@ import { useKanban } from './hooks/useKanban';
 import Column from './components/Column';
 
 export default function KanbanBoard() {
-  const { columns, addCard, moveCard, deleteCard } = useKanban();
+  const { columns, addCard, moveCard, moveCardToColumn, deleteCard } = useKanban();
 
   return (
     <div style={{ padding: '24px' }}>
@@ -20,6 +20,7 @@ export default function KanbanBoard() {
             isLast={index === columns.length - 1}
             onAddCard={addCard}
             onMoveCard={moveCard}
+            onMoveCardToColumn={moveCardToColumn}
             onDeleteCard={deleteCard}
           />
         ))}

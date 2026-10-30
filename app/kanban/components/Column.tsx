@@ -10,13 +10,14 @@ type Props = {
   isLast: boolean;
   onAddCard: (columnId: CardStatus, title: string) => void;
   onMoveCard: (cardId: string, direction: 'left' | 'right') => void;
+  onMoveCardToColumn: (cardId: string, columnId: CardStatus) => void;
   onDeleteCard: (cardId: string, columnId: CardStatus) => void;
 }
 
 export default function Column({
   id, title, cards,
   isFirst, isLast,
-  onAddCard, onMoveCard, onDeleteCard
+  onAddCard, onMoveCard, onMoveCardToColumn, onDeleteCard
 }: Props) {
 
   const [input, setInput] = useState<string>('');
@@ -34,7 +35,14 @@ export default function Column({
       padding: '16px',
       width: '280px',
       minHeight: '400px',
-    }}>
+    }}
+      onDragOver={(event) => event.preventDefault()}
+      onDrop={(event) => {
+        event.preventDefault();
+        const cardId = event.dataTransfer.getData('text/plain');
+        if (cardId) onMoveCardToColumn(cardId, id);
+      }}
+    >
       {/* Column Header */}
       <div style={{
         display: 'flex',

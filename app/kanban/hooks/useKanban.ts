@@ -60,6 +60,36 @@ export const useKanban = () => {
     );
   };
 
+  const moveCardToColumn = (cardId: string, targetColumnId: CardStatus): void => {
+    setColumns((prev) => {
+      const sourceColumn = prev.find((column) =>
+        column.cards.some((card) => card.id === cardId)
+      );
+      if (!sourceColumn || sourceColumn.id === targetColumnId) return prev;
+
+      const card = sourceColumn.cards.find((item) => item.id === cardId);
+      if (!card || !prev.some((column) => column.id === targetColumnId)) return prev;
+
+      return prev.map((column) => {
+        if (column.id === sourceColumn.id) {
+          return {
+            ...column,
+            cards: column.cards.filter((item) => item.id !== cardId),
+          };
+        }
+
+        if (column.id === targetColumnId) {
+          return {
+            ...column,
+            cards: [...column.cards, { ...card, status: targetColumnId }],
+          };
+        }
+
+        return column;
+      });
+    });
+  };
+
   // 3. Delete card
   const deleteCard = (cardId: string, columnId: CardStatus): void => {
     setColumns(prev =>
@@ -71,5 +101,5 @@ export const useKanban = () => {
     );
   };
 
-  return { columns, addCard, moveCard, deleteCard };
+  return { columns, addCard, moveCard, moveCardToColumn, deleteCard };
 };

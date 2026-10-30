@@ -22,7 +22,12 @@ export default function KanbanCard({
       alignItems: 'center',
       justifyContent: 'space-between',
       gap: '8px',
-    }}>
+    }}
+      draggable
+      onDragStart={(event) => {
+        event.dataTransfer.setData('text/plain', card.id);
+      }}
+    >
       <span style={{ fontSize: '14px', flex: 1 }}>{card.title}</span>
 
       <div style={{ display: 'flex', gap: '4px' }}>
