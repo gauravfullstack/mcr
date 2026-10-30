@@ -93,6 +93,42 @@ const features = [
     href: "/theme-switcher",
   },
   {
+    name: "useFetch Hook",
+    description:
+      "Fetch typed data with loading/error state and abort requests when unmounted.",
+    href: "/use-fetch",
+  },
+  {
+    name: "useDebounce Hook",
+    description:
+      "Return a value after it has remained unchanged for the specified delay.",
+    href: "/use-debounce",
+  },
+  {
+    name: "useLocalStorage Hook",
+    description:
+      "Persist a value in localStorage and sync changes across tabs.",
+    href: "/use-local-storage",
+  },
+  {
+    name: "usePrevious Hook",
+    description:
+      "Keep the previous value from the last render.",
+    href: "/use-previous",
+  },
+  {
+    name: "useOnClickOutside Hook",
+    description:
+      "Run a handler when a click occurs outside a referenced element.",
+    href: "/use-on-click-outside",
+  },
+  {
+    name: "useInterval Hook",
+    description:
+      "Run the latest callback on an interval and pause it with a null delay.",
+    href: "/use-interval",
+  },
+  {
     name: "Multi-step Form",
     description:
       "Create a multi-step form with next/back navigation, validation, conditional fields and submission.",
